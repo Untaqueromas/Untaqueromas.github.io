@@ -27,26 +27,49 @@
 
 <tr>
   <td>
-<form>
+<form id="nameform">
   <label for="username" nombre del usuario: ></label>    
   <input type="text" id="username" name="username" placeholder="Escribe tu nombre"> 
-  <button type="button"><b>Ingresar el nombre.</b></button>  
-
-
+  <button type="button" onclick="addTextBox()"><b>Ingresar el nombre.</b></button>  
 
 </form>
 </td>
+<div id="textBoxesContainer"></div>
 </tr>
-
-
-
-
-
-
 
 </table>
 
+<script>
+function addTextBox(){
+  var inputValue= document.getElementById("username").value;
 
+if(inputValue.tirm()!=="");{
+
+  var newTextBox= document.createElement("input");
+
+newTextBox.type="text";
+
+newTextBox.placeholder="nuevo texto";
+
+document.getElementById("textBoxesContainer").appendChild(newTextBox);
+
+document.getElementById("username").value="";
+
+}else { alert('Por favor, ingresa un nombre antes de presionar el boton.'); }
+
+const table=document.getElementById("nameform");
+const newRow=table.insertRow(-1);
+newRow.insertCell(0).textContent= table.rows.lenth -1;
+newRow.insertCell(1).textContent = nombre;
+      newRow.insertCell(2).innerHTML = '<button onclick="eliminarFila(this)">Eliminar</button>';
+      saveTableData();
+      document.getElementById("captura").value="";
+
+}
+
+
+
+</script>
 
 
 
