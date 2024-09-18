@@ -4,71 +4,91 @@
  <head> 
    <title> HTML </title> 
 </head>   
+<style type="text/css">
+  table, tr, td {
+      border: 1px solid rgb(202, 191, 29);
+  }
+</style>
+<body>
+ <body background=""></body>
+ <div style="display: flex; justify-content: center; align-items: center;">
+      <center>
+      <table>
+          <tr>
+              <td colspan="2" style="background-color: rgb(21, 157, 161);text-align: center;"><h2>tablas de Elementos de HTML</h2></td>
+          </tr>
+          <tr>
+              <td>
+                  <input id="captura" type="text" placeholder="Escribe tu name">
+                  <input id="captura1" type="text" placeholder="escribe tu apelido Paterno">
+                  <input id="captura2" type="text" placeholder="escribe tu apelido aterno" onkeypress="if (event.keyCode === 13) { agregarFila(); }">
+              </td>
+              <td>
+                  <input type="button" value="Agregar" onclick="agregarFila()">
+              </td>
+          </tr>
+      </table>
+      </center>
+  </div>
+  <br>
+  <br>
+  <center>
+      <table id="tabla">
+          <tr>
+              <td style="background-color: rgb(187, 118, 118); text-align: center;">Consecutivo</td>
+              <td style="background-color: rgb(164, 143, 212); text-align: center;">Nombre Alumno</td>
+              <td style="background-color: rgb(190, 112, 38); text-align: center;">Eliminar</td>
+          </tr>
+      </table>
+  </center>   
+  <script>
+      let contador = 1;
+
+      function agregarFila() {
+          let nombre = document.getElementById("captura").value.trim();
+          
+          
+          if (nombre === "") {
+              alert("he pon tu nombre no seas pedazo de nazi.");
+              return;
+          }
+          
+
+          var tabla = document.getElementById("tabla");
+          var nuevaFila = tabla.insertRow(-1);
+          var celda0 = nuevaFila.insertCell(0);
+          var celda1 = nuevaFila.insertCell(1);
+          var celda2 = nuevaFila.insertCell(2);
+
+          celda0.textContent = contador++;
+          celda1.textContent = nombre;
+          
+          
+
+          var botonEliminar = document.createElement("button");
+          botonEliminar.textContent = "Eliminar";
+          botonEliminar.onclick = function() {
+              this.parentNode.parentNode.remove();
+          };
+
+          celda2.appendChild(botonEliminar);
+
+          // Reiniciamos el campo de entrada
+          document.getElementById("captura").value = "";
+          document.getElementById("captura").focus();
+          
+          
+          
+      }
+      window.onbeforeunload = function(event){
+        return "xd";
+      }
+  </script>
+</body>
+
+
  
 
 
-<style type="text/css">
- table, tr, td {
-	border: 1px solid black;
-}
 
-</style> 
-
-<body>
-<body bgcolor="grey"></body>
-
-<table border="6">
-  <tr>
-  <th>Trabajo en html.  </th>
-</tr>
-
-<tr>  
-  <td><i>Nombre ingresado.</i></td>
-</tr>
-
-<tr>
-  <td>
-<form id="nameform">
-  <label for="username" nombre del usuario: ></label>    
-  <input type="text" id="loop" name="username" placeholder="Escribe tu nombre"> 
-  <button type="button" onclick="addTextBox()"><b>Ingresar el nombre.</b></button>  
-
-</form>
-</td>
-<div id="textBoxesContainer"></div>
-</tr>
-
-</table>
-
-<script>
-let contador=1;
-
-function addTextBox(){
-let username =document.getElementByld(loop).value.trim();
-
-if( username ===""){
-alert("Ese no es un nombre valido, por favor ingresa uno diferente.")
-return;
-}
-
-
-
-
-
-
-
-
-
-}
-
-
-
-
-
-
-</script>
-
-
-
-</body>
 </html>
