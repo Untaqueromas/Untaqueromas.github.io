@@ -6,22 +6,22 @@
 </head>   
 <style type="text/css">
   table, tr, td {
-      border: 1px solid rgb(202, 191, 29);
+      border: 1px solid rgb(52, 238, 5);
   }
 </style>
-<body>
- <body background=""></body>
+<body background="fondos-de-pantalla-del-espacio-para-pc-4-1200x675.jpg.jpeg" >
+  
+    
  <div style="display: flex; justify-content: center; align-items: center;">
       <center>
       <table>
           <tr>
-              <td colspan="2" style="background-color: rgb(21, 157, 161);text-align: center;"><h2>tablas de Elementos de HTML</h2></td>
+              <td colspan="2" style="background-color: rgb(184, 16, 226);text-align: center;"><h2>tablas de Elementos de HTML</h2></td>
           </tr>
           <tr>
               <td>
-                  <input id="captura" type="text" placeholder="Escribe tu name">
-                  <input id="captura1" type="text" placeholder="escribe tu apelido Paterno">
-                  <input id="captura2" type="text" placeholder="escribe tu apelido aterno" onkeypress="if (event.keyCode === 13) { agregarFila(); }">
+                  <input id="captura" type="text" placeholder="Escribe tu nombre"  onkeypress="if (event.keyCode === 13) { agregarFila(); }"  >
+                  
               </td>
               <td>
                   <input type="button" value="Agregar" onclick="agregarFila()">
@@ -35,9 +35,9 @@
   <center>
       <table id="tabla">
           <tr>
-              <td style="background-color: rgb(187, 118, 118); text-align: center;">Consecutivo</td>
-              <td style="background-color: rgb(164, 143, 212); text-align: center;">Nombre Alumno</td>
-              <td style="background-color: rgb(190, 112, 38); text-align: center;">Eliminar</td>
+              <td style="background-color: rgb(206, 19, 19); text-align: center;">Consecutivo</td>
+              <td style="background-color: rgb(68, 11, 202); text-align: center;">Nombre Alumno</td>
+              <td style="background-color: rgb(212, 159, 108); text-align: center;">Eliminar</td>
           </tr>
       </table>
   </center>   
@@ -49,7 +49,7 @@
           
           
           if (nombre === "") {
-              alert("he pon tu nombre no seas pedazo de nazi.");
+              alert("Por favor ingresa tu nombre.");
               return;
           }
           
