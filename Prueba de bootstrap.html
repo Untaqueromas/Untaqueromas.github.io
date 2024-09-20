@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML con Bootstrap</title>
+    <!-- Enlace a Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        table, tr, td {
+            border: 1px solid rgb(52, 238, 5);
+        }
+        body {
+            background-image: url('fondos-de-pantalla-del-espacio-para-pc-4-1200x675.jpg.jpeg');
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <div class="text-center mb-4">
+        <h2 class="bg-primary text-white p-2">Tablas de Elementos de HTML</h2>
+    </div>
+    <div class="d-flex justify-content-center mb-4">
+        <input id="captura" type="text" class="form-control mr-2" placeholder="Escribe tu nombre" onkeypress="if (event.keyCode === 13) { agregarFila(); }">
+        <input type="button" value="Agregar" class="btn btn-success" onclick="agregarFila()">
+    </div>
+
+    <table id="tabla" class="table table-bordered text-center">
+        <thead>
+            <tr>
+                <th style="background-color: rgb(206, 19, 19);">Consecutivo</th>
+                <th style="background-color: rgb(68, 11, 202);">Nombre Alumno</th>
+                <th style="background-color: rgb(212, 159, 108);">Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+
+<!-- Enlaces a jQuery y Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    let contador = 1;
+
+    function agregarFila() {
+        let nombre = document.getElementById("captura").value.trim();
+
+        if (nombre === "") {
+            alert("Por favor ingresa tu nombre.");
+            return;
+        }
+
+        var tabla = document.getElementById("tabla").getElementsByTagName('tbody')[0];
+        var nuevaFila = tabla.insertRow();
+
+        var celda0 = nuevaFila.insertCell(0);
+        var celda1 = nuevaFila.insertCell(1);
+        var celda2 = nuevaFila.insertCell(2);
+
+        celda0.textContent = contador++;
+        celda1.textContent = nombre;
+
+        var botonEliminar = document.createElement("button");
+        botonEliminar.textContent = "Eliminar";
+        botonEliminar.className = "btn btn-danger";
+        botonEliminar.onclick = function() {
+            this.parentNode.parentNode.remove();
+        };
+
+        celda2.appendChild(botonEliminar);
+
+        // Reiniciamos el campo de entrada
+        document.getElementById("captura").value = "";
+        document.getElementById("captura").focus();
+    }
+
+    window.onbeforeunload = function(event){
+        return "xd";
+    }
+</script>
+
+</body>
+</html>
