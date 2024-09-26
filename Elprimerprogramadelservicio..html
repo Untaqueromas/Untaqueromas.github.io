@@ -14,22 +14,22 @@
     background-image: url('fondos-de-pantalla-del-espacio-para-pc-4-1200x675.jpg.jpeg');
             background-size: cover; }
 </style>
-<body>
+<body >
   
     <div class="container mt-5">
- <div style="display: flex; justify-content: center; align-items: center;">
+ <div style="display: flex; justify-content: center; align-items: center;" >
       <center>
-      <table>
+      <table  class="table table-bordered text-center">
           <tr>
-              <td colspan="2" style="background-color: rgb(184, 16, 226);text-align: center;"><h2>Tablas de elementos de HTML</h2></td>
+              <td colspan="2" style="background-color: rgb(184, 16, 226);text-align: center;" class="bg-warning text-white p-2" ><h2>Tablas de elementos de HTML</h2></td>
           </tr>
           <tr>
               <td>
-                  <input id="captura" type="text" placeholder="Escribe tu nombre"  onkeypress="if (event.keyCode === 13) { agregarFila(); }"  >
+                  <input id="captura" type="text" class="form-control mr-2" placeholder="Escribe tu nombre "  onkeypress="if (event.keyCode === 13) { agregarFila(); }"  >
                   
               </td>
               <td>
-                  <input type="button" value="Agregar" class="btn-success" style="border-radius: 20px;"  onclick="agregarFila()">
+                  <input type="button" value="Agregar" class="btn-success btn btn-light" style="border-radius: 20px;"  onclick="agregarFila()">
               </td>
           </tr>
       </table>
@@ -39,12 +39,14 @@
   <br>
   <br>
   <center>
-      <table id="tabla">
+      <table id="tabla" class="table text-center" >
           <tr>
-              <td style="background-color: rgb(206, 19, 19); text-align: center;">Consecutivo</td>
-              <td style="background-color: rgb(68, 11, 202); text-align: center;">Nombre Alumno</td>
-              <td style="background-color: rgb(212, 159, 108); text-align: center;">Eliminar</td>
-          </tr>
+            <thead>
+              <td style="background-color: rgb(206, 19, 19); text-align: center;" class="bg-success">Repetición</td>
+              <td style="background-color: rgb(68, 11, 202); text-align: center;" class="bg-info" >Nombre del Alumno</td>
+              <td style="background-color: rgb(212, 159, 108); text-align: center;" class="bg-danger" >Eliminar</td>
+            </thead>         
+            </tr>
       </table>
   </center>   
 
@@ -77,6 +79,7 @@
 
           var botonEliminar = document.createElement("button");
           botonEliminar.textContent = "Eliminar";
+          botonEliminar.className = "btn btn-dark";
           botonEliminar.onclick = function() {
               this.parentNode.parentNode.remove();
           };
