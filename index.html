@@ -5,6 +5,7 @@
    <title> HTML </title> 
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="manifest" href="manifest.json">
+
 </head>   
 <style type="text/css">
   table, tr, td {
@@ -98,12 +99,19 @@
         return "xd";
       }
   </script>
-  
+
+<script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register('self.js').then(function(registration) {
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }).catch(function(error) {
+                console.error('ServiceWorker registration failed: ', error);   
+
+            });
+        });
+    }
+</script>
+
 </body>
-
-
- 
-
-
-
 </html>
