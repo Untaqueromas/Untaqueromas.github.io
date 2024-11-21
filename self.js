@@ -1,5 +1,6 @@
 // 
-const FILES_TO_CACHE = [
+const CACHE_NAME = 'static-v1';
+const FILES_TO_CACHE =[
   // '/',
   './index.html',
   '/manifest.json',
@@ -55,3 +56,13 @@ self.addEventListener('install', (event) => {
       })
     );
   });
+
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/service-worker.js').then((registration) => {
+        console.log('Service Worker registrado con éxito:', registration);
+      }).catch((error) => {
+        console.log('Error al registrar el Service Worker:', error);
+      });
+    });
+  }
