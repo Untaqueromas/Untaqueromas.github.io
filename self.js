@@ -1,4 +1,4 @@
-// 
+// aaa
 const CACHE_NAME = 'static-v1';
 const FILES_TO_CACHE =[
   // '/',
