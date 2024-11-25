@@ -1,5 +1,5 @@
 // aaa
-let CACHE_VERSION = 'app-v0.00';
+let CACHE_VERSION = 'app-v0.1';
 let FILES_TO_CACHE =[
   // '/',
   './index.html',
@@ -15,7 +15,7 @@ self.addEventListener('install', function (event) {
       caches.open(CACHE_VERSION)
           .then(function (cache) {
               console.log('Opened cache');
-              return cache.addAll(CACHE_FILES);
+              return cache.addAll(FILES_TO_CACHE);
           })
   )
 })
