@@ -19,17 +19,22 @@ self.addEventListener('install', function (event) {
 });
 
 self.addEventListener('fetch', function (event) {
-  event.respondWith(
-    caches.match(event.request).then(function (res) {
-      if (res) {
-        // Return the cached response if available
-        return res;
-      }
-      // Otherwise, fetch from the network
-      return fetch(event.request);
-    })
-  );
-});
+    let online = navigator.onLine
+    if (!online) {
+        event.respondWith(
+            caches.match(event.request).then(function (res) {
+                if (res) {
+                    return res;
+                }
+            })
+        )
+    }else{
+            return fetch(event.request).then(data => {
+                event.respondWith(data)
+            })
+        
+    }
+  })
 
 self.addEventListener('activate', function (event) {
   event.waitUntil(
