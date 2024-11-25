@@ -2,7 +2,7 @@ let CACHE_VERSION = 'app-v0.1';
 let FILES_TO_CACHE = [
   './index.html',
   '/manifest.json',
-  './img/fondos-de-pantalla-del-espacio-para-pc-4-1200x675.jpeg',
+  './img/fondo.jpeg',
   './bootstrap.min.css',
   './bootstrap.bundle.min.js',
 ];
